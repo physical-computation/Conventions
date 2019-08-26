@@ -24,7 +24,7 @@ For visual alignment, assume the code will be viewed in an editor where tabs are
 
 8.	No function definitions in header .h files.
 
-9.	Files named named `warp-xxxcamelCasedName.yyy`.
+9.	Files named named `warp-camelCasedName.yyy`. See the [README-FileNamingConventions.md](https://github.com/physical-computation/Conventions/blob/master/README-FileNamingConventions.md) for more on file naming conventions. 
 
 10.	Constants in `enum`s, not in `#define`s where possible.
 
@@ -32,6 +32,6 @@ For visual alignment, assume the code will be viewed in an editor where tabs are
 
 12.	All `if` statement followed by curly braces, even if body is a single statement.
 
-13.	The pattern `\t\n` (tab followed by newline) should never occur in a source file.
+13.	The patterns ` \n` (space followed by newline) and `\t\n` (tab followed by newline) should never occur in a source file.
 
 14.	Except for temporary debugging statements, all print statements should use `flexprint` from the `libflex` library (https://github.com/phillipstanleymarbell/libflex). This allows us to buffer print statements and makes the web interface/demos and other deployments possible. Errors go into the buffer `Fperr` and informational output (almost everything that is not an error) goes into `Fpinfo`. We sometimes have additional dedicated buffers to isolate certain outputs.
