@@ -10,3 +10,5 @@ Following these conventions makes it easier for everyone to make sense of code a
 3.	Avoid spaces and all special characters (except `-` and `_` as necessary, see above). Following this convention saves a lot of headache with referencing file names across platforms.
 
 4.	Every directory should have a `README.md`. Use this to provide a brief summary of the directory's contents.
+
+5.  Examples of the file names in the Noisy compiler implementation: `noisy-irPass-protobufBackend.c`, `noisy-timeStamps.c`, etc.
