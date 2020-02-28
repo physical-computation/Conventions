@@ -29,7 +29,7 @@ myFunction
 	...
 ```
 
-5.	For multi-word type specifiers (e.g., `char *`), leave more space between the type specifier and the identifier, than between the type specifier's components. Recommend using two spaces in function signatures and a tab in variable declations as above. So, e.g., `char *  argv[]` and not ``char * argv[]`
+5.	For multi-word type specifiers (e.g., `char *`), leave more space between the type specifier and the identifier, than between the type specifier's components. Recommend using two spaces in function signatures and a tab in variable declations as above. So, e.g., `char *  argv[]` and not `char * argv[]`
 
 6.	Type names begin with a capital. Type names specific to a project named Xyz begin with `Xyz`, e.g., `XyzPhenomenon`.
 
