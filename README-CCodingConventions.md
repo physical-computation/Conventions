@@ -77,7 +77,9 @@ main(int argc, char *  argv[])
 
 19.	For projects that use the `libflex` library (https://github.com/phillipstanleymarbell/libflex), except for temporary debugging statements, all console output statements should use `flexprint`. This allows us to buffer print statements and makes the web interface/demos and other deployments possible. Errors go into the buffer `Fperr` and informational output (almost everything that is not an error) goes into `Fpinfo`. We sometimes have additional dedicated buffers to isolate certain outputs.
 
-20. Here is a long example from the Noisy compiler:
+20.	Avoid _magic numbers_ (unnamed constants inline in code). Any integer constants used in code should be in an enum (see enum entry naming guidelines above).
+
+21.	Here is a long example from the Noisy compiler:
 ```c
 /*
  *	kNoisyIrNodeType_PmoduleDecl
