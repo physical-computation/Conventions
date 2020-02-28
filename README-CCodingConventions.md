@@ -38,15 +38,11 @@ myFunction
 8.	C-style comments, in the form:
 ```c
 	/*
-	 *	Comment (offset with a single tab)
+	 *	Comment (offset with a single tab) :-)
 	 */
-```
 
-	Comment content offset with a tab, so _not_
-
-```c
 	/*
-	 * This comment is offset with a space, not with a tab.
+	 * This comment is offset with a space, not with a tab :-(
 	 */
 ```
 
