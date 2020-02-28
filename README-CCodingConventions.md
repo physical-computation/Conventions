@@ -50,23 +50,23 @@ myFunction
 	 */
 ```
 
-	Please avoid C++-style `//` comments unless they are for temporary debugging comments (e.g., temporarily commenting out a line of code)
+9.	Please avoid C++-style `//` comments unless they are for temporary debugging comments (e.g., temporarily commenting out a line of code)
 
-9.	Comments are not just "notes to self". They should provide useful explanatory information.
+10.	Comments are not just "notes to self". They should provide useful explanatory information.
 
-10.	No `#include` within header .h files if possible.
+11.	No `#include` within header .h files if possible.
 
-11.	No function definitions in header .h files.
+12.	No function definitions in header .h files.
 
-12.	For files on project Xyz, file names `xyz-camelCasedName.yyy`. See the [README-FileNamingConventions.md](https://github.com/physical-computation/Conventions/blob/master/README-FileNamingConventions.md) for more on file naming conventions. 
+13.	For files on project Xyz, file names `xyz-camelCasedName.yyy`. See the [README-FileNamingConventions.md](https://github.com/physical-computation/Conventions/blob/master/README-FileNamingConventions.md) for more on file naming conventions. 
 
-13.	Constants in `enum`s, not in `#define`s where possible.
+14.	Constants in `enum`s, not in `#define`s where possible.
 
-14.	Avoid `#define` if possible.
+15.	Avoid `#define` if possible.
 
-15.	All `if` statement followed by curly braces, even if body is a single statement.
+16.	All `if` statement followed by curly braces, even if body is a single statement.
 
-16.	Curly brace on line following `if`, `for`, function bodies, etc:
+17.	Curly brace on line following `if`, `for`, function bodies, etc:
 ```C
 int
 main(int argc, char *  argv[])
@@ -77,11 +77,11 @@ main(int argc, char *  argv[])
 }
 ```
 
-17.	The patterns ` \n` (space followed by newline) and `\t\n` (tab followed by newline) should never occur in a source file.
+18.	The patterns ` \n` (space followed by newline) and `\t\n` (tab followed by newline) should never occur in a source file.
 
-18.	Except for temporary debugging statements, all print statements should use `flexprint` from the `libflex` library (https://github.com/phillipstanleymarbell/libflex). This allows us to buffer print statements and makes the web interface/demos and other deployments possible. Errors go into the buffer `Fperr` and informational output (almost everything that is not an error) goes into `Fpinfo`. We sometimes have additional dedicated buffers to isolate certain outputs.
+19.	Except for temporary debugging statements, all print statements should use `flexprint` from the `libflex` library (https://github.com/phillipstanleymarbell/libflex). This allows us to buffer print statements and makes the web interface/demos and other deployments possible. Errors go into the buffer `Fperr` and informational output (almost everything that is not an error) goes into `Fpinfo`. We sometimes have additional dedicated buffers to isolate certain outputs.
 
-19. Here is a long example from the Noisy compiler:
+20. Here is a long example from the Noisy compiler:
 ```c
 /*
  *	kNoisyIrNodeType_PmoduleDecl
@@ -103,31 +103,15 @@ noisyParseModuleDecl(State *  N, Scope *  scope)
 						NULL /* left child */,
 						NULL /* right child */,
 						lexPeek(N, 1)->sourceInfo /* source info */);
-
 	IrNode *	identifier = noisyParseIdentifierDefinitionTerminal(N, scope);
+
 	addLeaf(N, n, identifier);
 	noisyParseTerminal(N, kNoisyIrNodeType_Tcolon);
 	noisyParseTerminal(N, kNoisyIrNodeType_Tmodule);
 	noisyParseTerminal(N, kNoisyIrNodeType_TleftParens);
 	addLeafWithChainingSeq(N, n, noisyParseTypeParameterList(N, scope));
 	noisyParseTerminal(N, kNoisyIrNodeType_TrightParens);
-
-	/*
-	 *	We keep a global handle on the module scope
-	 */
-	IrNode *	scopeBegin	= noisyParseTerminal(N, kNoisyIrNodeType_TleftBrace);
-	Scope *		moduleScope	= commonSymbolTableOpenScope(N, scope, scopeBegin);
-	IrNode *	typeTree	= noisyParseModuleDeclBody(N, moduleScope);
-
-	addLeaf(N, n, typeTree);
-
-	IrNode *	scopeEnd	= noisyParseTerminal(N, kNoisyIrNodeType_TrightBrace);
-
-	commonSymbolTableCloseScope(N, moduleScope, scopeEnd);
-	identifier->symbol->typeTree = typeTree;
-
-	addToModuleScopes(N, identifier->symbol->identifier, moduleScope);
-
+...
 	if (!inFollow(N, kNoisyIrNodeType_PmoduleDecl, gNoisyFollows, kNoisyIrNodeTypeMax))
 	{
 		noisyParserSyntaxError(N, kNoisyIrNodeType_PmoduleDecl, kNoisyIrNodeTypeMax, gNoisyFollows);
