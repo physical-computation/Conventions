@@ -1,3 +1,5 @@
+0.	The overarching rule: follow the conventions in the file to which you are making modifications.
+
 1.	Code indented with tabs, not spaces. If you use `vim`, set your `.vimrc` as follows so you can see where you have stray spaces:
 ```
 set list
@@ -5,7 +7,7 @@ set listchars=tab:>-
 ```
 For visual alignment, assume the code will be viewed in an editor where tabs are rendered to be as wide as eight spaces.
 
-2.	Variable names in `camelCase`.
+2.	Variable names in `camelCase`. In a time when displays were 80 characters wide by 25 characters high, it made sense to keep variable names short. Not any longer: avoid abbreviating variable names. The abbreviations that seem obvious to you could be baffling (or offensive) to others.
 
 3.	Function return types on a separate line preceding the function head:
 ```c
@@ -29,7 +31,7 @@ myFunction
 	...
 ```
 
-5.	For multi-word type specifiers (e.g., `char *`), leave more space between the type specifier and the identifier, than between the type specifier's components. Recommend using two spaces in function signatures and a tab in variable declations as above. So, e.g., `char *  argv[]` and not `char * argv[]`
+5.	For multi-word type specifiers (e.g., `char *`), leave more space between the type specifier and the identifier, than between the type specifier's components. Recommend using two (or more) spaces in function signatures and a tab in variable declations as above. So, e.g., `char *  argv[]` and not `char * argv[]`
 
 6.	Type names begin with a capital. Type names specific to a project named Xyz begin with `Xyz`, e.g., `XyzPhenomenon`.
 
@@ -56,9 +58,9 @@ myFunction
 
 13.	For files on project Xyz, file names `xyz-camelCasedName.yyy`. See the [README-FileNamingConventions.md](https://github.com/physical-computation/Conventions/blob/master/README-FileNamingConventions.md) for more on file naming conventions. 
 
-14.	Constants in `enum`s, not in `#define`s where possible.
+14.	Constants in `enum`s, not in `#define`s where possible. `#define` constants are invisible to the debugger since they are textually substituted by the preprocessor. `enum`s on the other hand are visible to the compiler and go into the debug symbols.
 
-15.	Avoid `#define` if possible.
+15.	Avoid `#define` if possible (see above).
 
 16.	All `if` statement followed by curly braces, even if body is a single statement.
 
@@ -77,7 +79,7 @@ main(int argc, char *  argv[])
 
 19.	For projects that use the `libflex` library (https://github.com/phillipstanleymarbell/libflex), except for temporary debugging statements, all console output statements should use `flexprint`. This allows us to buffer print statements and makes the web interface/demos and other deployments possible. Errors go into the buffer `Fperr` and informational output (almost everything that is not an error) goes into `Fpinfo`. We sometimes have additional dedicated buffers to isolate certain outputs.
 
-20.	Avoid _magic numbers_ (unnamed constants inline in code). Any integer constants used in code should be in an enum (see enum entry naming guidelines above).
+20.	Avoid _magic numbers_ (unnamed constants inline in code). Any integer constants used in code should be in an enum (see `enum` entry naming guidelines above).
 
 21.	Here is a long example from the Noisy compiler:
 ```c
