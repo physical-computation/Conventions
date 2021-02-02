@@ -18,7 +18,7 @@ main(void)
 }
 ```
 
-4.	Variable declations with type separated from variable names by a tab:
+4.	Variable declations with type separated from variable names by a tab and float all variable definitions to the top of the enclosing scope, separated by no empty lines unless necessary to denote groups of different variable classes:
 ```c
 int	myVariable;
 void *	myPointer;
@@ -31,7 +31,7 @@ myFunction
 	...
 ```
 
-5.	For multi-word type specifiers (e.g., `char *`), leave more space between the type specifier and the identifier, than between the type specifier's components. Recommend using two (or more) spaces in function signatures and a tab in variable declations as above. So, e.g., `char *  argv[]` and not `char * argv[]`
+5.	For multi-word type specifiers (e.g., `char *`), leave more space between the type specifier and the identifier, than between the type specifier's components. Recommend using two (or more) spaces in function signatures and a tab in variable declations as above. So, e.g., `char *   argv[]` and not `char * argv[]`
 
 6.	Type names begin with a capital. Type names specific to a project named Xyz begin with `Xyz`, e.g., `XyzPhenomenon`.
 
