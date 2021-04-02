@@ -12,3 +12,5 @@ Following these conventions makes it easier for everyone to make sense of code a
 4.	Every directory should have a `README.md`. Use this to provide a brief summary of the directory's contents.
 
 5.  Examples of the file names in the Noisy compiler implementation: `noisy-irPass-protobufBackend.c`, `noisy-timeStamps.c`, etc.
+
+6.  Avoid naming files that differ only by case, e.g., avoid having `input-a.txt` and `input-A.txt` in the same path, because some filesystems are case insensitive.
